@@ -94,6 +94,9 @@ TO INSERT YOUR IMAGES:
             padding: 140px 20px 100px;
             position: relative;
             overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
         .hero-section::before {
@@ -128,8 +131,21 @@ TO INSERT YOUR IMAGES:
         }
 
         .hero-content {
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
             margin-bottom: 60px;
+        }
+
+        .hero-text {
+            text-align: left;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .badge {
@@ -154,8 +170,7 @@ TO INSERT YOUR IMAGES:
         .hero-subtitle {
             font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 40px;
             animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
@@ -252,10 +267,78 @@ TO INSERT YOUR IMAGES:
             cursor: not-allowed;
         }
 
-        /* Phone Mockup */
+        /* Enhanced CTA Section */
+        .cta-section-hero {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button-hero {
+            display: inline-block;
+            background: #FFD700;
+            color: #000;
+            padding: 18px 40px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button-hero:hover {
+            background: #FFED4E;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Community Grid */
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .community-item {
+            aspect-ratio: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .community-item:hover {
+            transform: scale(1.05);
+        }
+
+        .community-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .community-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            color: white;
+            padding: 15px 10px 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Phone Mockup - Enhanced */
         .phone-mockup {
             max-width: 320px;
-            margin: 60px auto 0;
+            margin: 0 auto;
             animation: fadeInUp 0.8s ease-out 0.8s both;
             position: relative;
         }
@@ -912,12 +995,245 @@ TO INSERT YOUR IMAGES:
         .logo-decoration {
             margin-bottom: 30px;
             animation: fadeInUp 0.6s ease-out;
+            position: relative;
         }
 
         .sidechat-logo {
             max-width: 300px;
             height: auto;
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+            /* Add outline effect */
+            filter: drop-shadow(0 0 0 2px rgba(255, 255, 255, 0.8)) 
+                    drop-shadow(0 0 0 4px rgba(255, 255, 255, 0.6))
+                    drop-shadow(0 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        /* School Logos Background Design */
+        .school-logos-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            padding: 50px;
+            opacity: 0.4;
+            z-index: -1;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .school-logo {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .school-logo img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+        }
+
+        .school-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .school-logo:nth-child(3n+1) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+            box-shadow: 
+                0 8px 32px rgba(255, 255, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .school-logo:nth-child(3n+2) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.08));
+            box-shadow: 
+                0 8px 32px rgba(255, 255, 255, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        .school-logo:nth-child(3n+3) {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.12));
+            box-shadow: 
+                0 8px 32px rgba(255, 255, 255, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .school-logo:hover {
+            opacity: 0.8;
+            transform: scale(1.15) translateY(-5px);
+            box-shadow: 
+                0 15px 40px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .school-logo:hover img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .school-logo:hover::before {
+            opacity: 1;
+        }
+
+        /* Enhanced logo container */
+        .logo-container {
+            position: relative;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.05), 
+                transparent, 
+                rgba(255, 255, 255, 0.08), 
+                transparent, 
+                rgba(255, 255, 255, 0.03), 
+                transparent
+            );
+            animation: rotate 25s linear infinite;
+            z-index: -1;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(
+                circle at 30% 30%, 
+                rgba(255, 255, 255, 0.1) 0%, 
+                transparent 50%
+            );
+            z-index: -1;
+        }
+
+        /* Animated Bubbles */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .bubble:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 2s;
+            animation-duration: 6s;
+        }
+
+        .bubble:nth-child(3) {
+            width: 40px;
+            height: 40px;
+            top: 30%;
+            left: 70%;
+            animation-delay: 4s;
+            animation-duration: 7s;
+        }
+
+        .bubble:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            top: 80%;
+            left: 20%;
+            animation-delay: 1s;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(5) {
+            width: 50px;
+            height: 50px;
+            top: 10%;
+            left: 60%;
+            animation-delay: 3s;
+            animation-duration: 5s;
+        }
+
+        .bubble:nth-child(6) {
+            width: 90px;
+            height: 90px;
+            top: 70%;
+            left: 5%;
+            animation-delay: 5s;
+            animation-duration: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+                opacity: 0.3;
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-10px) translateX(-15px);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(-30px) translateX(5px);
+                opacity: 0.4;
+            }
         }
 
         /* Gen Z users image */
@@ -1008,6 +1324,22 @@ TO INSERT YOUR IMAGES:
 
             .hero-section {
                 padding: 100px 20px 60px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text {
+                text-align: center;
+            }
+
+            .community-grid {
+                max-width: 300px;
+                gap: 10px;
             }
 
             .offer-box {
@@ -1078,6 +1410,37 @@ TO INSERT YOUR IMAGES:
                 max-width: 250px;
             }
 
+            /* Mobile bubble adjustments */
+            .bubble:nth-child(1) {
+                width: 60px;
+                height: 60px;
+            }
+
+            .bubble:nth-child(2) {
+                width: 45px;
+                height: 45px;
+            }
+
+            .bubble:nth-child(3) {
+                width: 30px;
+                height: 30px;
+            }
+
+            .bubble:nth-child(4) {
+                width: 55px;
+                height: 55px;
+            }
+
+            .bubble:nth-child(5) {
+                width: 40px;
+                height: 40px;
+            }
+
+            .bubble:nth-child(6) {
+                width: 70px;
+                height: 70px;
+            }
+
             .gen-z-image {
                 max-width: 100%;
                 margin: 30px auto;
@@ -1118,6 +1481,60 @@ TO INSERT YOUR IMAGES:
             .clemson-post-image {
                 max-width: 100%;
             }
+
+            .email-signup-section {
+                padding: 60px 20px;
+            }
+
+            .email-signup-content h2 {
+                font-size: 2rem;
+            }
+
+            .email-signup-content p {
+                font-size: 1.1rem;
+            }
+
+            .logo-container {
+                padding: 40px 20px;
+                min-height: 300px;
+                border: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .school-logos-background {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                padding: 30px;
+                opacity: 0.5;
+            }
+
+            .school-logo {
+                width: 60px;
+                height: 60px;
+                font-size: 1.4rem;
+                backdrop-filter: blur(8px);
+            }
+
+            .school-logo img {
+                width: 75%;
+                height: 75%;
+            }
+
+            .school-logo:hover {
+                opacity: 0.9;
+                transform: scale(1.12) translateY(-3px);
+                box-shadow: 
+                    0 12px 30px rgba(255, 255, 255, 0.25),
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            }
+
+            .school-logo:hover img {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            .sidechat-logo {
+                max-width: 250px;
+            }
         }
 
         /* Reduced Motion */
@@ -1127,6 +1544,33 @@ TO INSERT YOUR IMAGES:
                 transition: none !important;
             }
         }
+
+        /* Email Signup Section */
+        .email-signup-section {
+            background: #fff;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .email-signup-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .email-signup-content h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .email-signup-content p {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        /* Stats Section */
     </style>
 </head>
 <body>
@@ -1149,42 +1593,112 @@ TO INSERT YOUR IMAGES:
             <div class="hero-content">
                 <!-- Sidechat Logo Decoration -->
                 <div class="logo-decoration">
-                    <img src="/Users/natedalbert/Sidechat/Sidechat Logo.png" alt="Sidechat Logo" class="sidechat-logo">
-                </div>
-                <span class="badge">🎯 New: Hyper-local targeting now available</span>
-                <h1>REACH STUDENTS<br>WHERE THEY ARE</h1>
-                <p class="hero-subtitle">Connect with Gen Z's most engaged communities. Advertise on Sidechat to reach students in specific schools and neighborhoods with laser-focused precision.</p>
-                
-                <div class="offer-box" id="getStarted">
-                    <h3 class="offer-title">Limited Time Offer</h3>
-                    <p class="offer-text">Spend $250, get $300 in ad credits</p>
-                    <form class="email-form" id="mainCTAForm">
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                            <button type="submit" class="btn btn-primary">Get Started</button>
+                    <div class="logo-container">
+                        <!-- Animated Bubbles -->
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        
+                        <div class="school-logos-background">
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23002E5D'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUM%3C/text%3E%3C/svg%3E" alt="University of Michigan"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FF6B35'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUSC%3C/text%3E%3C/svg%3E" alt="USC"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23000000'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUCLA%3C/text%3E%3C/svg%3E" alt="UCLA"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23570B2A'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3ENYU%3C/text%3E%3C/svg%3E" alt="NYU"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23CC0000'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EBU%3C/text%3E%3C/svg%3E" alt="Boston University"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23002E5D'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUF%3C/text%3E%3C/svg%3E" alt="University of Florida"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23BF5700'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUT%3C/text%3E%3C/svg%3E" alt="University of Texas"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23DC4400'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EOSU%3C/text%3E%3C/svg%3E" alt="Ohio State"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2300416A'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EPSU%3C/text%3E%3C/svg%3E" alt="Penn State"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23007FAE'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EUNC%3C/text%3E%3C/svg%3E" alt="UNC"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23012169'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EDuke%3C/text%3E%3C/svg%3E" alt="Duke"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23A31F34'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EMIT%3C/text%3E%3C/svg%3E" alt="MIT"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%238C1515'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EStanford%3C/text%3E%3C/svg%3E" alt="Stanford"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23003D7C'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EBerkeley%3C/text%3E%3C/svg%3E" alt="Berkeley"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23A51C30'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EHarvard%3C/text%3E%3C/svg%3E" alt="Harvard"></div>
+                            <div class="school-logo"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2300356A'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EYale%3C/text%3E%3C/svg%3E" alt="Yale"></div>
                         </div>
-                    </form>
+                        <img src="Sidechat Logo.png" alt="Sidechat Logo" class="sidechat-logo">
+                    </div>
                 </div>
-            </div>
+                <div class="hero-text">
+                    <span class="badge">🎯 New: Hyper-local targeting now available</span>
+                    <h1>REACH STUDENTS<br>WHERE THEY ARE</h1>
+                    <p class="hero-subtitle">Connect with Gen Z's most engaged communities. Advertise on Sidechat to reach students in specific schools and neighborhoods with laser-focused precision.</p>
+                    
+                    <div class="cta-section-hero">
+                        <a href="#getStarted" class="cta-button-hero">Get Started</a>
+                        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">Limited time: Spend $250, get $300 in ad credits</p>
+                    </div>
+                </div>
 
-            <!-- Phone Mockup -->
-            <div class="phone-mockup">
-                <div class="phone-frame">
-                    <div class="phone-screen">
-                        <div class="sidechat-header">
-                            <h3>University of Michigan</h3>
-                            <p>2.3k students online</p>
+                <!-- Phone Mockup -->
+                <div class="hero-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="sidechat-header">
+                                    <h3>Sidechat</h3>
+                                    <p>Your campus community</p>
+                                </div>
+                                <div class="sidechat-item">
+                                    <strong>Trending Now</strong><br>
+                                    What's happening on campus
+                                </div>
+                                <div class="sidechat-item">
+                                    <strong>Local Deals</strong><br>
+                                    Student discounts nearby
+                                </div>
+                            </div>
                         </div>
-                        <div class="sidechat-item">
-                            <strong>Local Coffee Shop</strong><br>
-                            Free WiFi + 20% off for students
+                    </div>
+                    
+                    <!-- Community Grid -->
+                    <div class="community-grid" style="margin-top: 30px;">
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FF6B6B'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E📚%3C/text%3E%3C/svg%3E" alt="Study Group">
+                            <div class="community-item-overlay">Study Group</div>
                         </div>
-                        <div class="sidechat-item">
-                            <strong>Campus Events</strong><br>
-                            Study groups forming now
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%234ECDC4'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E☕%3C/text%3E%3C/svg%3E" alt="Coffee Shop">
+                            <div class="community-item-overlay">Coffee Shop</div>
+                        </div>
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%2345B7D1'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E🎉%3C/text%3E%3C/svg%3E" alt="Campus Event">
+                            <div class="community-item-overlay">Campus Event</div>
+                        </div>
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23FFD93D'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E🏀%3C/text%3E%3C/svg%3E" alt="Sports">
+                            <div class="community-item-overlay">Sports</div>
+                        </div>
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%236BCF7F'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E🍕%3C/text%3E%3C/svg%3E" alt="Food">
+                            <div class="community-item-overlay">Food</div>
+                        </div>
+                        <div class="community-item">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23E848E5'/%3E%3Ctext x='100' y='100' text-anchor='middle' dy='.3em' fill='white' font-family='Arial' font-size='14'%3E💬%3C/text%3E%3C/svg%3E" alt="Chat">
+                            <div class="community-item-overlay">Chat</div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup Section -->
+    <section class="email-signup-section" id="getStarted">
+        <div class="container">
+            <div class="email-signup-content">
+                <h2>Stay in the loop with Sidechat</h2>
+                <p>Sign up for our newsletter to get the latest updates and insights about hyper-local targeting.</p>
+                <form id="emailSignupForm" class="email-form">
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
@@ -1221,7 +1735,7 @@ TO INSERT YOUR IMAGES:
                 <p style="text-align: center; color: #666; margin-bottom: 40px;">Unlike other platforms, Sidechat organizes by school communities. Your ads reach students where they live, study, and socialize.</p>
                 
                 <!-- INSERT GEN Z USERS IMAGE HERE -->
-                <img src="/Users/natedalbert/Sidechat/Gen Z photo.jpg" alt="Gen Z students using mobile devices" class="gen-z-image">
+                <img src="Gen Z photo.jpg" alt="Gen Z students using mobile devices" class="gen-z-image">
                 
                 <div class="targeting-features">
                     <div class="feature-item">
@@ -1549,7 +2063,7 @@ TO INSERT YOUR IMAGES:
         }, 8000);
 
         // Handle form submission
-        document.getElementById('mainCTAForm').addEventListener('submit', function(e) {
+        document.getElementById('emailSignupForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = document.getElementById('email').value;
